@@ -1,0 +1,16 @@
+<h1>Todo List</h1>
+<h4> message from parent: {{dataFromParent}}</h4>
+
+Enter todo: <input type="text" id="todoNameElm" name="todoNameElm" [(ngModel)]="todoName" /><button (click)="addTodo()">Add Todo</button>
+
+<table>
+  <tr>
+    <td>Todo Item</td>
+  </tr>
+
+  <tr *ngFor="let item of todos">
+    <td>{{item}}</td>
+  </tr>
+
+
+</table>

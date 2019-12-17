@@ -1,0 +1,13 @@
+<h3>Update Product</h3>
+<form #productForm="ngForm" (ngSubmit)="formSubmit()">
+  <input type="number" name="id" id="id" [(ngModel)]="model.id" />
+  <input placeholder="Name" type="text" id="productName" name="productName" [(ngModel)]="model.name" #productName="ngModel" required minlength="5" />
+  <span *ngIf="productName.invalid && (productName.dirty || productName.touched)">
+    <span *ngIf="productName.errors.required">Product name is required</span>
+    <span *ngIf="productName.errors.minlength">Product name is shorter than 5</span>
+  </span>
+  <br />
+  <input placeholder="Quantity" type="number" id="quantity" name="quantity" [(ngModel)]="model.quantity" required />
+  <br />
+  <input type="submit" [disabled]="!productForm.valid" value="Send" />
+</form>
